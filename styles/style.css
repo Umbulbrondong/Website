@@ -146,6 +146,7 @@ nav {
     background-color: #444;
     text-align: center;
     padding: 10px 20px;
+    margin-top: 18px; /* Memberi jarak dari header */
 }
 nav ul { 
     list-style: none; 
@@ -249,14 +250,14 @@ footer a { color: #00aaff; }
     /* Pengaturan Navigasi Tampilan Mobile */
     nav {
         padding: 0 10px;
-        background-color: transparent; /* Hapus background abu-abu di HP */
+        background-color: #444; /* Hapus background abu-abu di HP */
         margin-top: 18px; /* Memberi jarak dari header */
     }
     nav ul {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 10px; /* Memberi jarak konsisten antar tombol */
+        gap: 15px; /* Memberi jarak konsisten antar tombol */
     }
     nav ul li {
         margin: 0; /* Hapus margin asli karena sudah diatur oleh 'gap' */
@@ -281,4 +282,5 @@ footer a { color: #00aaff; }
         max-width: 90%;
     }
 }
+
 
