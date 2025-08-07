@@ -250,7 +250,7 @@ footer a { color: #00aaff; }
     nav {
         padding: 0 10px;
         background-color: transparent; /* Hapus background abu-abu di HP */
-        margin-top: 15px; /* Memberi jarak dari header */
+        margin-top: 18px; /* Memberi jarak dari header */
     }
     nav ul {
         display: flex;
@@ -281,3 +281,4 @@ footer a { color: #00aaff; }
         max-width: 90%;
     }
 }
+
