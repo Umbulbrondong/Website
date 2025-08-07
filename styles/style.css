@@ -238,7 +238,7 @@ footer a { color: #00aaff; }
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 12px;
+        gap: 15px;
     }
     nav ul li {
         display: list-item;
@@ -261,4 +261,5 @@ footer a { color: #00aaff; }
         max-width: 90%;
     }
 }
+
 
