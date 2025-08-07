@@ -1,0 +1,259 @@
+/* Pengaturan Dasar & Font */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    overflow-x: hidden;
+}
+
+#main-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 1;
+}
+
+header, nav, main, footer {
+    padding: 20px;
+    width: auto;
+}
+
+.side-gallery {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    width: 18vw;
+    overflow: hidden;
+    z-index: 0;
+}
+#side-gallery-left { left: 0; }
+#side-gallery-right { right: 0; }
+
+.side-gallery .scroll-content {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    animation: scroll-up 40s linear infinite;
+}
+.side-gallery img {
+    width: 100%;
+    height: auto;
+    padding: 5px;
+    box-sizing: border-box;
+}
+
+@keyframes scroll-up {
+    from { transform: translateY(0%); }
+    to { transform: translateY(-50%); }
+}
+
+header {
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    position: relative; /* Ini penting untuk posisi absolut di dalamnya */
+    background-image: 
+        linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), 
+        url('../assets/image/Background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.header-logo {
+    margin-bottom: 15px;
+}
+
+.header-logo img {
+    max-width: 140px;
+    height: auto;
+    border-radius: 20px;
+}
+
+header .lang-content h1 {
+    font-family: 'Fredoka One', cursive; /* Menggunakan Fredoka One, dengan fallback 'cursive' */
+    font-size: 3.5rem;                   /* Ukuran font yang lebih besar dan berdampak */
+    font-weight: normal;                 /* Penting untuk font display agar tidak ditebalkan paksa */
+    color: #FFFFFF;                      /* Warna tulisan tetap putih */
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: inline-block;
+    margin-top: 0;
+    
+    /* Hapus 'background-color' agar transparan dan tambahkan bayangan teks */
+    background-color: rgba(0, 0, 0, 0.4); /* Anda bisa tetap menggunakan ini jika suka */
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6); /* Bayangan agar teks lebih menonjol */
+}
+
+/* ==============================================
+    PERUBAHAN POSISI DROPDOWN BAHASA
+    ============================================== */
+.language-dropdown {
+    position: absolute; /* Mengubah posisi menjadi absolut */
+    top: 20px;          /* Jarak 20px dari atas header */
+    right: 20px;          /* Jarak 20px dari kanan header */
+}
+
+.lang-current {
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 150px;
+}
+
+.arrow-down {
+    margin-left: 10px;
+    font-size: 12px;
+    transition: transform 0.3s;
+}
+
+.lang-options {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 150px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 100;
+    border-radius: 5px;
+    overflow: hidden;
+    top: 105%;
+    right: 0; /* Membuat menu dropdown rata kanan dengan tombolnya */
+}
+
+.lang-options a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.lang-options a:hover {
+    background-color: #ddd;
+}
+
+.language-dropdown.show .lang-options {
+    display: block;
+}
+.language-dropdown.show .arrow-down {
+    transform: rotate(180deg);
+}
+/* ==============================================
+    AKHIR PERUBAHAN DROPDOWN BAHASA
+    ============================================== */
+
+
+nav {
+    background-color: #444;
+    text-align: center;
+    padding: 10px 20px;
+}
+nav ul { list-style: none; padding: 0; margin: 0; }
+nav ul li { display: inline-block; margin: 0 5px; }
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+nav ul li a:hover {
+    background-color: rgba(0, 123, 255, 0.5);
+}
+
+section { padding: 20px; margin-bottom: 20px; border-bottom: 1px solid #eee; }
+h2 { color: #0056b3; border-bottom: 2px solid #f4f4f4; padding-bottom: 10px; }
+
+.main-slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    height: 400px;
+    background-color: #e9e9e9;
+}
+
+.slider-wrapper { display: flex; height: 100%; transition: transform 0.5s ease-in-out; }
+.slide { min-width: 100%; height: 100%; box-sizing: border-box; position: relative; overflow: hidden; }
+.slide img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform 0.3s ease; }
+.slide:hover { z-index: 2; }
+.slide:hover img { transform: scale(1.2); }
+.slider-btn { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.5); color: white; border: none; padding: 10px 15px; cursor: pointer; font-size: 20px; z-index: 10; }
+.prev-btn { left: 10px; }
+.next-btn { right: 10px; }
+.video-slider { position: relative; }
+.video-btn { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(0, 0, 0, 0.5); color: white; border: none; padding: 10px 15px; cursor: pointer; font-size: 20px; z-index: 10; }
+#prev-video-btn { left: 10px; }
+#next-video-btn { right: 10px; }
+
+video, iframe { max-width: 100%; border-radius: 8px; }
+footer { text-align: center; padding: 20px; background-color: #333; color: #fff; }
+footer a { color: #00aaff; }
+.copyright { margin-top: 20px; font-size: 14px; color: #aaa; }
+
+@media (max-width: 992px) {
+    .side-gallery { display: none; }
+    #main-wrapper { margin: 0; box-shadow: none; }
+
+    /* Penyesuaian Galeri di Tampilan HP */
+    .main-slider {
+        height: unset;        /* Menghapus aturan tinggi dari desktop */
+        aspect-ratio: 4 / 3;  /* Membuat bentuk kotak dengan rasio 4:3 */
+        max-width: 90%;       /* Mengecilkan lebar galeri */
+        margin: 20px auto;    /* Menempatkan galeri di tengah */
+    }
+
+    /* Menyamakan lebar elemen lain di HP agar konsisten */
+    #denah img,
+    #video iframe,
+    #video .video-slider {
+        max-width: 90%;
+    }
+    header .lang-content h1 {
+        font-size: 2.5rem; /* Ukuran font lebih kecil untuk mobile */
+    }
+}
+
+/* ==============================================
+   PENYESUAIAN UKURAN & POSISI KONTEN (CENTERING)
+   ============================================== */
+
+/* Mengatur gambar denah agar lebih kecil dan di tengah */
+#denah img {
+    display: block;           /* Wajib agar margin auto berfungsi */
+    max-width: 80%;           /* Ukuran gambar maksimal 80% dari lebar kontainer */
+    margin: 20px auto;        /* 20px untuk jarak atas/bawah, auto untuk tengah horizontal */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Efek bayangan agar lebih menarik */
+}
+
+/* Mengatur galeri utama agar lebih kecil dan di tengah */
+.main-slider {
+    max-width: 80%;           /* Dibuat sedikit lebih lebar dari elemen lain */
+    margin: 20px auto;        /* Menengahkan galeri */
+}
+
+/* Mengatur video YouTube dan slider video lokal agar lebih kecil dan di tengah */
+#video iframe,
+#video .video-slider {
+    display: block;
+    max-width: 80%;           /* Ukuran video maksimal 80% */
+    margin: 20px auto;        /* Menengahkan video */
+    border-radius: 8px;       /* Menyamakan sudut dengan elemen lain */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
