@@ -77,27 +77,23 @@ header {
 }
 
 header .lang-content h1 {
-    font-family: 'Fredoka One', cursive; /* Menggunakan Fredoka One, dengan fallback 'cursive' */
-    font-size: 3.5rem;                   /* Ukuran font yang lebih besar dan berdampak */
-    font-weight: normal;                 /* Penting untuk font display agar tidak ditebalkan paksa */
-    color: #FFFFFF;                      /* Warna tulisan tetap putih */
+    font-family: 'Fredoka One', cursive;
+    font-size: 3.5rem;
+    font-weight: normal;
+    color: #FFFFFF;
     padding: 10px 20px;
     border-radius: 8px;
     display: inline-block;
     margin-top: 0;
-    
-    /* Hapus 'background-color' agar transparan dan tambahkan bayangan teks */
-    background-color: rgba(0, 0, 0, 0.4); /* Anda bisa tetap menggunakan ini jika suka */
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6); /* Bayangan agar teks lebih menonjol */
+    background-color: rgba(0, 0, 0, 0.4);
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
 }
 
-/* ==============================================
-    PERUBAHAN POSISI DROPDOWN BAHASA
-    ============================================== */
+/* Pengaturan Dropdown Bahasa */
 .language-dropdown {
-    position: absolute; /* Mengubah posisi menjadi absolut */
-    top: 20px;          /* Jarak 20px dari atas header */
-    right: 20px;          /* Jarak 20px dari kanan header */
+    position: absolute;
+    top: 20px;
+    right: 20px;
 }
 
 .lang-current {
@@ -130,7 +126,7 @@ header .lang-content h1 {
     border-radius: 5px;
     overflow: hidden;
     top: 105%;
-    right: 0; /* Membuat menu dropdown rata kanan dengan tombolnya */
+    right: 0;
 }
 
 .lang-options a {
@@ -140,26 +136,17 @@ header .lang-content h1 {
     display: block;
     text-align: left;
 }
-
-.lang-options a:hover {
-    background-color: #ddd;
-}
-
-.language-dropdown.show .lang-options {
-    display: block;
-}
-.language-dropdown.show .arrow-down {
-    transform: rotate(180deg);
-}
-/* ==============================================
-    AKHIR PERUBAHAN DROPDOWN BAHASA
-    ============================================== */
+.lang-options a:hover { background-color: #ddd; }
+.language-dropdown.show .lang-options { display: block; }
+.language-dropdown.show .arrow-down { transform: rotate(180deg); }
 
 
+/* Pengaturan Navigasi Menu Kotak */
 nav {
-    background-color: #444;
+    background-color: #444; /* Warna di PC */
     text-align: center;
     padding: 10px 20px;
+    /* Dihapus dari sini dan dipindah ke media query */
 }
 nav ul { list-style: none; padding: 0; margin: 0; }
 nav ul li { display: inline-block; margin: 0 5px; }
@@ -173,9 +160,7 @@ nav ul li a {
     border-radius: 5px;
     transition: background-color 0.3s;
 }
-nav ul li a:hover {
-    background-color: rgba(0, 123, 255, 0.5);
-}
+nav ul li a:hover { background-color: rgba(0, 123, 255, 0.5); }
 
 section { padding: 20px; margin-bottom: 20px; border-bottom: 1px solid #eee; }
 h2 { color: #0056b3; border-bottom: 2px solid #f4f4f4; padding-bottom: 10px; }
@@ -187,6 +172,8 @@ h2 { color: #0056b3; border-bottom: 2px solid #f4f4f4; padding-bottom: 10px; }
     border-radius: 8px;
     height: 400px;
     background-color: #e9e9e9;
+    max-width: 80%; /* Dibuat sedikit lebih lebar dari elemen lain */
+    margin: 20px auto; /* Menengahkan galeri */
 }
 
 .slider-wrapper { display: flex; height: 100%; transition: transform 0.5s ease-in-out; }
@@ -207,16 +194,68 @@ footer { text-align: center; padding: 20px; background-color: #333; color: #fff;
 footer a { color: #00aaff; }
 .copyright { margin-top: 20px; font-size: 14px; color: #aaa; }
 
+#denah img {
+    display: block;
+    max-width: 80%;
+    margin: 20px auto;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#video iframe,
+#video .video-slider {
+    display: block;
+    max-width: 80%;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* =======================================================
+   RESPONSIVE & PERBAIKAN TAMPILAN MOBILE (HP)
+   ======================================================= */
 @media (max-width: 992px) {
     .side-gallery { display: none; }
     #main-wrapper { margin: 0; box-shadow: none; }
 
+    header .lang-content h1 {
+        font-size: 2.5rem; /* Ukuran font judul lebih kecil untuk mobile */
+    }
+
+    /* 1. PERBAIKAN TOMBOL BAHASA */
+    .lang-current {
+        min-width: auto;      /* Hapus lebar minimum agar ukurannya fleksibel */
+        padding: 6px 10px;    /* Perkecil padding atas/bawah dan kiri/kanan */
+        font-size: 14px;      /* Perkecil ukuran font */
+    }
+    .lang-options {
+        min-width: 120px; /* Sesuaikan juga lebar menu dropdownnya */
+    }
+
+    /* 2. PERBAIKAN NAVIGASI MENU KOTAK */
+    nav {
+        padding: 15px 10px;  /* Beri sedikit ruang di dalam container nav */
+        background-color: transparent; /* Hapus background abu-abu di mobile */
+    }
+    nav ul {
+        display: flex;         /* Gunakan flexbox untuk layout yang lebih baik */
+        flex-wrap: wrap;       /* Izinkan tombol pindah ke baris baru jika tidak muat */
+        justify-content: center; /* Pusatkan semua tombol */
+        gap: 8px;              /* CARA MODERN untuk memberi jarak antar tombol (atas, bawah, kiri, kanan) */
+    }
+    nav ul li {
+        display: list-item; /* Override inline-block, biarkan flexbox yang mengatur */
+        margin: 0;          /* Hapus margin karena sudah diatur oleh 'gap' */
+    }
+    nav ul li a {
+        padding: 8px 12px; /* Perkecil padding tombol agar tidak terlalu besar */
+    }
+
     /* Penyesuaian Galeri di Tampilan HP */
     .main-slider {
-        height: unset;        /* Menghapus aturan tinggi dari desktop */
-        aspect-ratio: 4 / 3;  /* Membuat bentuk kotak dengan rasio 4:3 */
-        max-width: 90%;       /* Mengecilkan lebar galeri */
-        margin: 20px auto;    /* Menempatkan galeri di tengah */
+        height: unset;
+        aspect-ratio: 4 / 3;
+        max-width: 90%;
+        margin: 20px auto;
     }
 
     /* Menyamakan lebar elemen lain di HP agar konsisten */
@@ -225,35 +264,4 @@ footer a { color: #00aaff; }
     #video .video-slider {
         max-width: 90%;
     }
-    header .lang-content h1 {
-        font-size: 2.5rem; /* Ukuran font lebih kecil untuk mobile */
-    }
-}
-
-/* ==============================================
-   PENYESUAIAN UKURAN & POSISI KONTEN (CENTERING)
-   ============================================== */
-
-/* Mengatur gambar denah agar lebih kecil dan di tengah */
-#denah img {
-    display: block;           /* Wajib agar margin auto berfungsi */
-    max-width: 80%;           /* Ukuran gambar maksimal 80% dari lebar kontainer */
-    margin: 20px auto;        /* 20px untuk jarak atas/bawah, auto untuk tengah horizontal */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Efek bayangan agar lebih menarik */
-}
-
-/* Mengatur galeri utama agar lebih kecil dan di tengah */
-.main-slider {
-    max-width: 80%;           /* Dibuat sedikit lebih lebar dari elemen lain */
-    margin: 20px auto;        /* Menengahkan galeri */
-}
-
-/* Mengatur video YouTube dan slider video lokal agar lebih kecil dan di tengah */
-#video iframe,
-#video .video-slider {
-    display: block;
-    max-width: 80%;           /* Ukuran video maksimal 80% */
-    margin: 20px auto;        /* Menengahkan video */
-    border-radius: 8px;       /* Menyamakan sudut dengan elemen lain */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
