@@ -257,7 +257,7 @@ footer a { color: #00aaff; }
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        gap: 20px; /* Memberi jarak konsisten antar tombol */
+        gap: 18px; /* Memberi jarak konsisten antar tombol */
     }
     nav ul li {
         margin: 0; /* Hapus margin asli karena sudah diatur oleh 'gap' */
@@ -286,6 +286,7 @@ footer a { color: #00aaff; }
         max-width: 90%;
     }
 }
+
 
 
 
